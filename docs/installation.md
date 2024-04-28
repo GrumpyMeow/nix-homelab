@@ -7,12 +7,18 @@ Boot from NixOS live cd
 # From NixOS LiveCD installation
 ##########################################################
 
-# Change keymap & root password
 sudo -i
-loadkeys fr
-passwd 
 
-# [Optional] WI-FI
+# [Optional] Change keymap
+# loadkeys fr
+# [Optional[ Default keymap
+# loadkeys --default
+
+# Change root password
+passwd
+  > <password>
+
+# [Optional] WI-FI to allow other computer to connect
 systemctl start wpa_supplicant
 wpa_cli
 add_network
@@ -22,9 +28,10 @@ enable_network 0
 
 # Get LiveCD nixos installation IP
 ip a
+    > This IP will be ussd as TARGETIP 
 
 ##########################################################
-# From other computer, enter to deploy environment
+# From other computer with NIX-installed, enter to deploy environment
 ##########################################################
 
 # NOTE: Use <SPACE> before command for not storing command in bash history (for secure your passwords)
